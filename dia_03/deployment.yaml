@@ -5,18 +5,19 @@ metadata:
     app: nginx-deployment
   name: nginx-deployment
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: nginx-deployment
-  strategy: {}
+  strategy: 
+    type: Recreate
   template:
     metadata:
       labels:
         app: nginx-deployment
     spec:
       containers:
-      - image: nginx
+      - image: nginx:1.15.0
         name: nginx
         resources:
           limits:
